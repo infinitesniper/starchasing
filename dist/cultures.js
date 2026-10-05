@@ -86,10 +86,13 @@ const stars={
     "asterism": "南门"
   }
 };
+const bright=typeof module==='object'?require('./bright-stars.js'):root.BrightStars;
+for(const s of bright)if(!stars[s.id])stars[s.id]=s;
 const modes={modern:'现代国际星座',chinese:'中国传统星官'};
 function describe(obj,mode='modern'){
  const entry=stars[obj.id];
  if(!entry)return {...obj,cultureNote:obj.kind==='planet'||obj.kind==='moon'?'日月行星共用现代名称。':'保留现代目录名称；本资料库未收录该目标的传统对应。',alternate:'',designation:obj.id};
+ if(mode==='chinese'&&!entry.asterism)return {...obj,name:entry.chinese||obj.name,group:'传统归属未核对',alternate:entry.international+' / '+entry.designation+' / '+obj.group,cultureNote:'已收录传统名称；星官分组尚未核对，不从星名自动推断。',designation:entry.designation};
  if(mode==='chinese')return {...obj,name:entry.chinese,group:entry.asterism+' · 星官',alternate:entry.international+' / '+entry.designation+' / '+obj.group,cultureNote:'传统星官与现代星座是不同的分组体系，不是一一翻译。',designation:entry.designation};
  return {...obj,name:obj.name,group:obj.group,alternate:entry.international+' / '+entry.designation,cultureNote:'现代星座归属；中文常用星名保留传统来源。',designation:entry.designation};
 }

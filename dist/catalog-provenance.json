@@ -1,0 +1,14 @@
+{
+  "count": 519,
+  "magnitude_limit": 4,
+  "source": "https://github.com/ofrohn/d3-celestial/tree/master/data",
+  "retrieved": "2026-10-05",
+  "input_sha256": {
+    "stars.6.json": "0297b8fa3adfbce1dc26566f61c4abcc1df4f29c6a28729ca06b56d1c6d25602",
+    "starnames.json": "19c84bc885f8a97c3b8e1f6a380084c575a9758dedfe35256e911a823ec3a695",
+    "starnames.cn.json": "ed9d9eab5a48a31b524b584663c7ef573e2d143dc237850bfa269a2ac6c377ba",
+    "constellations.json": "ab4ae692027cbc042c0d6791a84456a65eb7c55656107fd00c58ff6e55d4d8b2"
+  },
+  "named_chinese": 512,
+  "verified_asterism_groups": 12
+}
